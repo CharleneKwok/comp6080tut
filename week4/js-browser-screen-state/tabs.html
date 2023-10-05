@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      gap: 5px;
+    }
+    .hide {
+      display: none;
+    }
+  </style>
+  <body>
+    <nav id="nav">
+      <a href="#" id="Home">Home</a>
+      <span>|</span>
+      <a href="#" id="About">About</a>
+      <span>|</span>
+      <a href="#" id="News">News</a>
+      <span>|</span>
+      <a href="#" id="Articles">Articles</a>
+    </nav>
+    <p id="text">This is the homepage!</p>
+    <a href="#" id="contact">Contact Us</a>
+
+    <form id="form" class="hide">
+      <label for="Email">Email:</label>
+      <input id="Email" />
+      <label for="Name">Name:</label>
+      <input id="Name" />
+      <div>
+        <button id="close">Close</button>
+        <button>Submit</button>
+      </div>
+    </form>
+    <script>
+      const text = document.getElementById("text");
+      const routes = {
+        Home: "This is the homepage!",
+        About: "This is the about us page!",
+        News: "This is the news page!",
+        Articles: "This is the articles page!",
+      };
+
+      for (const [key, value] of Object.entries(routes)) {
+        document.getElementById(key).addEventListener("click", () => {
+          text.innerText = value;
+        });
+      }
+
+      const contact = document.getElementById("contact");
+      const nav = document.getElementById("nav");
+      const form = document.getElementById("form");
+      contact.addEventListener("click", () => {
+        [nav, text, contact].forEach((e) => {
+          e.classList.add("hide");
+        });
+        form.classList.remove("hide");
+      });
+
+      const close = document.getElementById("close");
+      close.addEventListener("click", () => {
+        [nav, text, contact].forEach((e) => {
+          e.classList.remove("hide");
+        });
+        form.classList.add("hide");
+      });
+    </script>
+  </body>
+</html>
