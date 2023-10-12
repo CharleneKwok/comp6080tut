@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const body = document.body;
+      const container = document.createElement("div");
+      body.appendChild(container);
+      container.style.display = "grid";
+      container.style.gridTemplateColumns = "100px 100px";
+
+      const loading = document.createElement("p");
+      loading.innerText = "Loading, please wait";
+      body.appendChild(loading);
+
+      const createTable = (data) => {
+        for (const [key, value] of Object.entries(data)) {
+          const header = document.createElement("p");
+          header.innerText = key;
+          const v = document.createElement("p");
+          v.innerText = value;
+          container.appendChild(header);
+          container.appendChild(v);
+        }
+      };
+
+      fetch("http://www.cse.unsw.edu.au/~cs6080/raw/data/package")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          localStorage.setItem("data", JSON.stringify(data));
+          createTable(data);
+          loading.style.display = "none";
+        })
+        .catch(() => {
+          const data = JSON.parse(localStorage.getItem("data"));
+          const alert = document.createElement("p");
+          body.appendChild(alert);
+          if (data) {
+            createTable(data);
+            alert.innerText = "This data is not live.";
+          }
+          loading.style.display = "none";
+        });
+    </script>
+  </body>
+</html>
