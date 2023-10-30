@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./review.css"/>
+  </head>
+  <body>
+    <!-- 1. use alt text -->
+    <img src="./images/unsw.png" alt="unsw">
+    <div class="header">
+      <!-- 2. use good semantic tags -->
+      <!-- 3. add closing tag -->
+      <h3 class="heading-one">Login</h3>
+    </div>
+    <div>
+      <p id="username">Username</p>
+      <!-- 4. placeholder and aria attributes -->
+      <input aria-labelledby="username" placeholder="Username" type="text"></input>
+      <p>
+        <!-- 5. for attribute -->
+        <label for="password">
+          Password
+        </label>
+      </p>
+      <!-- 6. use input type -->
+      <input id="password" placeholder="Password" aria-label="password" type="password"></input>
+    </div>
+    <!-- 7. use high contrast with the bg -->
+    <p class="link">
+      <!-- 8. make the link purpose explicitly -->
+      View the <a href="#">accessibility lecture</a> for this point
+    </p>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+
+<body>
+    <button>Hello!</button>
+    <button tabindex="5">What</button>
+    <button>order</button>
+
+    <a href="">should</a>
+    <!-- not included in the tab order -->
+    <a href="" tabindex=-1>you</a>
+
+    <!-- will be included in the tab order -->
+    <div tabindex="0">be</div>
+    <div>able</div>
+
+    <p>to</p>
+    <p>tab</p>
+
+    <input type="text" value="through" tabindex="2" />
+
+    <div>these</div>
+
+    <input type="text" value="elements" />
+
+    <input type="checkbox">in?</input>
+</body>
+
+</html>
