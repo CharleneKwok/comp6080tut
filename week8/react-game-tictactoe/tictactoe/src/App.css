@@ -1,0 +1,25 @@
+.App {
+  margin: 10px;
+}
+
+.board {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.win {
+  background-color: green;
+}
